@@ -1,0 +1,150 @@
+
+
+.home ul li:after, .clearfix:after{
+	content:"";
+	display:block;
+	clear:both;
+}
+
+
+.floating_menu{
+	background-color:rgba(255,255,255,0.5);
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height:60px;
+}
+
+.home{
+	float:left;
+	padding-left:30px;
+}
+.home_button{
+	width:30%;
+	float:left;
+}
+
+.home_button p img{
+	width:50px;
+}
+
+.home_button p img, .home p{
+	float:left;
+}
+
+
+.home ul{
+	width:70%;
+	float:right;
+	/*margin:10px 50px;*/
+	height:40px;
+	padding:0;
+	position:absolute;
+	right:0;
+}
+
+.home ul li {
+	float:left;
+	list-style-type:none;
+}
+
+.home ul li a{
+	padding:30px;
+	text-decoration:none;
+	font-size:20px;
+	color:black;
+}
+
+.home ul li a:hover{
+	color:red;
+}
+
+.sidemenu{
+	position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+.sidemenu h1{
+	font-size:50px;
+	text-decoration:none;
+	float:left;
+	margin:0;
+	position:absolute;
+}
+
+.sidemenu h1 a{
+	text-decoration:none;
+	color:black;
+	float:left;
+}
+
+.sidemenu  img{
+	width:50px;
+	float:left;
+}
+
+
+.sidemenu{
+	margin:0;
+	top:60px;
+	width:250px;
+	float:left;
+	background-color:rgba(255,255,255,0.5);
+}
+
+
+.sidemenu h2{
+	font-size:30px;
+	margin-top:50px;;
+}
+
+.sidemenu h2 :hover{
+	background-image: url(image/list_style_image.png);
+	background-size: 50px;
+	background-repeat:no-repeat;
+	background-position:left;
+}
+
+.sidemenu h2 a{
+	text-decoration:none;
+	color:black;
+	display:block;
+	padding:10px 50px;
+}
+.sidemenu ul li:hover{
+	color:red;
+}
+
+.sidemenu ul li a:hover{
+	color:red;
+	background-size: 30px;
+	background-repeat:no-repeat;
+	background-position:left;
+	}
+
+.sidemenu ul li{
+	font-size:20px;
+	font-weight:bold;
+	list-style-type:none;
+	margin-left:-40px;
+}
+
+.sidemenu ul li a{
+	text-decoration:none;
+	color:black;
+	display:block;
+	padding:10px 50px;
+}
+
+.sidemenu ul li:hover{
+	border:3px black solid;
+	color:red;
+	background-image: url(list_style_image.png);
+
+}
+.sidemenu ul li a:hover{
+	color:red;
+	}
+

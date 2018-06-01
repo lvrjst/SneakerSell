@@ -1,0 +1,26 @@
+.content{
+	width:100%;
+}
+
+
+table{
+	width:300px;
+	float:left;
+	background-color:yellow;
+	height:400px;
+	margin:20px;
+}
+
+table img{
+	height:200px;
+	width:300px;
+	margin-bottom:auto;
+}
+table:after{
+	clear:both;
+	content:"";
+	display:block;
+}
+.post_time{
+	text-align:right;
+}

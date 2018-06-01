@@ -1,0 +1,36 @@
+body {
+    padding: 0 100px;
+}
+
+.clear:after{
+	clear:both;
+	content:"";
+	display:block;
+}
+
+.leftbox {
+    float: left;
+    width: 50%;
+}
+.leftbox #area1 {
+    width: 87%;
+}
+
+.leftbox span img {
+    width: 20%;
+    float: left;
+    margin: 5px;
+    cursor:pointer;
+}
+p.item_text {
+    font-size: 11px;
+}
+
+.rightbox{
+	float:left;
+	width:50%;
+}
+
+.rightbox item_text{
+	font-size:10px;
+}
