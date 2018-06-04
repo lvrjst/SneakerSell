@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.internousdev.ecsite.dao.SneakerSellDAO;
-import com.internousdev.ecsite.dto.ItemDTO;
+import com.internousdev.ecsite.dto.ItemPageDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class SneakerSellAction extends ActionSupport{
-	private List<ItemDTO> sneakerSellDTOList = new ArrayList<ItemDTO>();
+	private List<ItemPageDTO> sneakerSellDTOList = new ArrayList<ItemPageDTO>();
 
 
 	public String execute(){
@@ -17,15 +17,13 @@ public class SneakerSellAction extends ActionSupport{
 		sneakerSellDTOList = sneakerSellDAO.getItemInfo();
 			if(sneakerSellDTOList.size() > 0){
 				ret=SUCCESS;
-			}else{
-				ret=ERROR;
 			}
 		return ret;
 	}
-	public List<ItemDTO> getSneakerSellDTOList(){
+	public List<ItemPageDTO> getSneakerSellDTOList(){
 	return sneakerSellDTOList;
 	}
-	public void setSneakerSellDTOList(List<ItemDTO> sneakerSellDTOList){
+	public void setSneakerSellDTOList(List<ItemPageDTO> sneakerSellDTOList){
 	this.sneakerSellDTOList = sneakerSellDTOList;
 	}
 }

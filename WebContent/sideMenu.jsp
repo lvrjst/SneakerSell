@@ -7,20 +7,12 @@
 
 	<h2><a href="sneakerSell.jsp#sneaker"><s:property value="item_id" /></a></h2>
 	<ul>
-		<li><a href="<s:url action='SearchAction' />">ナイキ</a></li>
-		<li><a href="sneakerSell.jsp#jordan4">アディダス</a></li>
-		<li><a href="<s:url action='SneakerSellAction' />#jordan2">アシックス</a></li>
-		<li><a href="<s:url action='SneakerSellAction' />#jordan3">プーマ</a></li>
-		<li><a href="sneakerSell.jsp#jordan5">Air Jordan Ⅴ</a></li>
-		<li><a href="sneakerSell.jsp#jordan6">Air Jordan Ⅵ</a></li>
-		<li><a href="sneakerSell.jsp#jordan7">Air Jordan Ⅶ</a></li>
-		<li><a href="sneakerSell.jsp#jordan8">Air Jordan Ⅷ</a></li>
-		<li><a href="sneakerSell.jsp#jordan9">Air Jordan Ⅸ</a></li>
-		<li><a href="sneakerSell.jsp#jordan10">Air Jordan Ⅹ</a></li>
-		<li><a href="sneakerSell.jsp#jordan11">Air Jordan Ⅺ</a></li>
-		<li><a href="sneakerSell.jsp#jordan12">Air Jordan Ⅻ</a></li>
-		<li><a href="sneakerSell.jsp#jordan13">Air Jordan XIII</a></li>
-		<li><a href="sneakerSell.jsp#jordan14">Air Jordan XIV</a></li>
+		<li><a href="<s:url action='SearchAction' />"><s:hidden name="maker"/><s:property value="ナイキ"/></a></li>
+		<li><a href="<s:url action='SearchAction' />">アディダス</a></li>
+		<li><a href="<s:url action='SearchAction' />">アシックス</a></li>
+		<li><a href="<s:url action='SearchAction' />">プーマ</a></li>
+		<li><a href="index.jsp">Air Jordan特設ページ</a></li>
+
 	</ul>
 </div>
 

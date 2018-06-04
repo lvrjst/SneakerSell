@@ -4,15 +4,15 @@ public class ItemPageDTO {
 	private String itemId ;
 	private String itemName ;
 	private String itemTitle ;
-	private String topPicUrl ;
-	private String anotherPicUrl1 ;
-	private String anotherPicUrl2 ;
-	private String anotherPicUrl3 ;
-	private String anotherPicUrl4 ;
-	private String anotherPicUrl5 ;
-	private String anotherPicUrl6 ;
-	private String anotherPicUrl7 ;
-	private String anotherPicUrl8 ;
+	private String picUrl0 ;
+	private String picUrl1 ;
+	private String picUrl2 ;
+	private String picUrl3 ;
+	private String picUrl4 ;
+	private String picUrl5 ;
+	private String picUrl6 ;
+	private String picUrl7 ;
+	private String picUrl8 ;
 	private int itemPrice ;
 	private String itemText ;
 	private int itemStock ;
@@ -39,59 +39,59 @@ public class ItemPageDTO {
 	public void setItemTitle(String itemTitle){
 	this.itemTitle = itemTitle;
 	}
-	public String getTopPicUrl(){
-	return topPicUrl;
+	public String getPicUrl0(){
+	return picUrl0;
 	}
-	public void setTopPicUrl(String topPicUrl){
-	this.topPicUrl = topPicUrl;
+	public void setPicUrl0(String picUrl0){
+	this.picUrl0 = picUrl0;
 	}
-	public String getAnotherPicUrl1(){
-	return anotherPicUrl1;
+	public String getPicUrl1(){
+	return picUrl1;
 	}
-	public void setAnotherPicUrl1(String anotherPicUrl1){
-	this.anotherPicUrl1 = anotherPicUrl1;
+	public void setPicUrl1(String picUrl1){
+	this.picUrl1 = picUrl1;
 	}
-	public String getAnotherPicUrl2(){
-	return anotherPicUrl2;
+	public String getPicUrl2(){
+	return picUrl2;
 	}
-	public void setAnotherPicUrl2(String anotherPicUrl2){
-	this.anotherPicUrl2 = anotherPicUrl2;
+	public void setPicUrl2(String picUrl2){
+	this.picUrl2 = picUrl2;
 	}
-	public String getAnotherPicUrl3(){
-	return anotherPicUrl3;
+	public String getPicUrl3(){
+	return picUrl3;
 	}
-	public void setAnotherPicUrl3(String anotherPicUrl3){
-	this.anotherPicUrl3 = anotherPicUrl3;
+	public void setPicUrl3(String picUrl3){
+	this.picUrl3 = picUrl3;
 	}
-	public String getAnotherPicUrl4(){
-	return anotherPicUrl4;
+	public String getPicUrl4(){
+	return picUrl4;
 	}
-	public void setAnotherPicUrl4(String anotherPicUrl4){
-	this.anotherPicUrl4 = anotherPicUrl4;
+	public void setPicUrl4(String picUrl4){
+	this.picUrl4 = picUrl4;
 	}
-	public String getAnotherPicUrl5(){
-	return anotherPicUrl5;
+	public String getPicUrl5(){
+	return picUrl5;
 	}
-	public void setAnotherPicUrl5(String anotherPicUrl5){
-	this.anotherPicUrl5 = anotherPicUrl5;
+	public void setPicUrl5(String picUrl5){
+	this.picUrl5 = picUrl5;
 	}
-	public String getAnotherPicUrl6(){
-	return anotherPicUrl6;
+	public String getPicUrl6(){
+	return picUrl6;
 	}
-	public void setAnotherPicUrl6(String anotherPicUrl6){
-	this.anotherPicUrl6 = anotherPicUrl6;
+	public void setPicUrl6(String picUrl6){
+	this.picUrl6 = picUrl6;
 	}
-	public String getAnotherPicUrl7(){
-	return anotherPicUrl7;
+	public String getPicUrl7(){
+	return picUrl7;
 	}
-	public void setAnotherPicUrl7(String anotherPicUrl7){
-	this.anotherPicUrl7 = anotherPicUrl7;
+	public void setPicUrl7(String picUrl7){
+	this.picUrl7 = picUrl7;
 	}
-	public String getAnotherPicUrl8(){
-	return anotherPicUrl8;
+	public String getPicUrl8(){
+	return picUrl8;
 	}
-	public void setAnotherPicUrl8(String anotherPicUrl8){
-	this.anotherPicUrl8 = anotherPicUrl8;
+	public void setPicUrl8(String picUrl8){
+	this.picUrl8 = picUrl8;
 	}
 	public int getItemPrice(){
 	return itemPrice;

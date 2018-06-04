@@ -25,7 +25,7 @@
 				<tr>
 					<td>
 						<a href="<s:url action='ItemPageAction' />?itemId=<s:property value='itemId' /> ">
-							<img src= "<s:property value='topPicUrl' />" width="300px">
+							<img src= "<s:property value='picUrl0' />" width="300px">
 						</a>
 					</td>
 				</tr>

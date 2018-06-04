@@ -6,28 +6,28 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.ecsite.dto.ItemDTO;
+import com.internousdev.ecsite.dto.ItemPageDTO;
 import com.internousdev.ecsite.util.DBConnector;
 
 public class SneakerSellDAO {
-	List<ItemDTO> sneakerSellDTOList = new ArrayList<ItemDTO>();
+	private List<ItemPageDTO> sneakerSellDTOList = new ArrayList<ItemPageDTO>();
 
 	private DBConnector dbConnector = new DBConnector();
 	private Connection con = dbConnector.getConnection();
 
-	public List<ItemDTO> getItemInfo(){
+	public List<ItemPageDTO> getItemInfo(){
 		String sql ="select * From item_info_transaction ";
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()){
-				ItemDTO sneakerSellDTO = new ItemDTO();
+				ItemPageDTO sneakerSellDTO = new ItemPageDTO();
 
 				sneakerSellDTO.setItemId(rs.getString("item_id"));
 				sneakerSellDTO.setItemTitle(rs.getString("item_title"));
 				sneakerSellDTO.setItemName(rs.getString("item_name"));
-				sneakerSellDTO.setTopPicUrl(rs.getString("pic_url0"));
+				sneakerSellDTO.setPicUrl0(rs.getString("pic_url0"));
 				sneakerSellDTO.setItemText(rs.getString("item_text"));
 				sneakerSellDTO.setPostTime(rs.getString("post_time"));
 
