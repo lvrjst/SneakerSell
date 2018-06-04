@@ -21,12 +21,18 @@ public class SearchAction extends ActionSupport implements SessionAware {
 
 
 	public String execute() throws SQLException{
-
+		System.out.println(maker);
 		sneakerSellDTOList = searchDAO.searchMaker(maker);
+		System.out.println(sneakerSellDTOList);
 
 		return result;
 	}
-
+	public String getMaker(){
+	return maker;
+	}
+	public void setMaker(String maker){
+	this.maker = maker;
+	}
 
 	public Map<String, Object> getSession() {
 		return session;

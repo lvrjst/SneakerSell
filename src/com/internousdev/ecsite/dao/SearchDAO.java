@@ -12,9 +12,9 @@ import com.internousdev.ecsite.util.DBConnector;
 
 public class SearchDAO {
 	private List<ItemPageDTO> sneakerSellDTOList = new ArrayList<ItemPageDTO>();
-	public List<ItemPageDTO> searchMaker(String maker){
 
-		ItemPageDTO itemPageDTO = new ItemPageDTO();
+	public List<ItemPageDTO> searchMaker(String maker)throws SQLException{
+
 		DBConnector dbConnector = new DBConnector();
 		Connection con = (Connection)dbConnector.getConnection();
 		String sql = "SELECT * FROM  item_info_transaction WHERE maker = ?";
@@ -25,28 +25,26 @@ public class SearchDAO {
 			ResultSet rs = ps.executeQuery();
 
 				while(rs.next()){
-					itemPageDTO.setItemId(rs.getString("Item_id"));
-					itemPageDTO.setItemName(rs.getString("Item_name"));
-					itemPageDTO.setItemText(rs.getString("Item_text"));
-					itemPageDTO.setMaker(rs.getString("maker"));
-					itemPageDTO.setItemPrice(rs.getInt("item_price"));
-					itemPageDTO.setPicUrl0(rs.getString("pic_url0"));
-					itemPageDTO.setPostTime(rs.getString("post_time"));
-					itemPageDTO.setColor1(rs.getString("color1"));
-					itemPageDTO.setColor2(rs.getString("color2"));
-					itemPageDTO.setItemStock(rs.getInt("item_stock"));
+					ItemPageDTO sneakerSellDTO = new ItemPageDTO();
 
-					sneakerSellDTOList.add(itemPageDTO);
+					sneakerSellDTO.setItemId(rs.getString("item_id"));
+					sneakerSellDTO.setItemName(rs.getString("item_name"));
+					sneakerSellDTO.setItemText(rs.getString("item_text"));
+					sneakerSellDTO.setMaker(rs.getString("maker"));
+					sneakerSellDTO.setItemPrice(rs.getInt("item_price"));
+					sneakerSellDTO.setPicUrl0(rs.getString("pic_url0"));
+					sneakerSellDTO.setPostTime(rs.getString("post_time"));
+					sneakerSellDTO.setColor1(rs.getString("color1"));
+					sneakerSellDTO.setColor2(rs.getString("color2"));
+					sneakerSellDTO.setItemStock(rs.getInt("item_stock"));
+
+					sneakerSellDTOList.add(sneakerSellDTO);
 				}
 
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally{
-			try{
-				con.close();
-			}catch(SQLException e){
-				e.printStackTrace();
-			}
+			con.close();
 		}
 		return sneakerSellDTOList;
 	}

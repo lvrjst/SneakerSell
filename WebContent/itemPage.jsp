@@ -11,31 +11,31 @@
 
 <script type="text/javascript">
 function showimg0(){
-    document.getElementById("area1").src = "<s:property value='#session.ItemPageDTO.topPicUrl'/>";
+    document.getElementById("area1").src = "<s:property value='#session.ItemPageDTO.picUrl0'/>";
 }
 function showimg1(){
-     document.getElementById("area1").src = src="<s:property value='#session.ItemPageDTO.anotherPicUrl1'/>";
+     document.getElementById("area1").src = src="<s:property value='#session.ItemPageDTO.picUrl1'/>";
 }
 function showimg2(){
-     document.getElementById("area1").src = src="<s:property value='#session.ItemPageDTO.anotherPicUrl2'/>";
+     document.getElementById("area1").src = src="<s:property value='#session.ItemPageDTO.picUrl2'/>";
 }
 function showimg3(){
-     document.getElementById("area1").src = src="<s:property value='#session.ItemPageDTO.anotherPicUrl3'/>";
+     document.getElementById("area1").src = src="<s:property value='#session.ItemPageDTO.picUrl3'/>";
 }
 function showimg4(){
-    document.getElementById("area1").src = src="<s:property value='#session.ItemPageDTO.anotherPicUrl4'/>";
+    document.getElementById("area1").src = src="<s:property value='#session.ItemPageDTO.picUrl4'/>";
 }
 function showimg5(){
-    document.getElementById("area1").src = src="<s:property value='#session.ItemPageDTO.anotherPicUrl5'/>";
+    document.getElementById("area1").src = src="<s:property value='#session.ItemPageDTO.picUrl5'/>";
 }
 function showimg6(){
-    document.getElementById("area1").src = src="<s:property value='#session.ItemPageDTO.anotherPicUrl6'/>";
+    document.getElementById("area1").src = src="<s:property value='#session.ItemPageDTO.picUrl6'/>";
 }
 function showimg7(){
-    document.getElementById("area1").src = src="<s:property value='#session.ItemPageDTO.anotherPicUrl7'/>";
+    document.getElementById("area1").src = src="<s:property value='#session.ItemPageDTO.picUrl7'/>";
 }
 function showimg8(){
-    document.getElementById("area1").src = src="<s:property value='#session.ItemPageDTO.anotherPicUrl8'/>";
+    document.getElementById("area1").src = src="<s:property value='#session.ItemPageDTO.picUrl8'/>";
 }
 </script>
 
@@ -51,18 +51,18 @@ function showimg8(){
 
 			<div class="leftbox">
 
-				<img src="<s:property value='#session.ItemPageDTO.topPicUrl'/>" id="area1" >
+				<img src="<s:property value='#session.ItemPageDTO.picUrl0'/>" id="area1" >
 
 
-				<span onclick="showimg0()"><img src="<s:property value='#session.ItemPageDTO.topPicUrl'/>"></span>
-				<span onclick="showimg1()"><img src="<s:property value='#session.ItemPageDTO.anotherPicUrl1'/>"></span>
-				<span onclick="showimg2()"><img src="<s:property value='#session.ItemPageDTO.anotherPicUrl2'/>"></span>
-				<span onclick="showimg3()"><img src="<s:property value='#session.ItemPageDTO.anotherPicUrl3'/>"></span>
-				<span onclick="showimg4()"><img src="<s:property value='#session.ItemPageDTO.anotherPicUrl4'/>"></span>
-				<span onclick="showimg5()"><img src="<s:property value='#session.ItemPageDTO.anotherPicUrl5'/>"></span>
-				<span onclick="showimg6()"><img src="<s:property value='#session.ItemPageDTO.anotherPicUrl6'/>"></span>
-				<span onclick="showimg7()"><img src="<s:property value='#session.ItemPageDTO.anotherPicUrl7'/>"></span>
-				<span onclick="showimg8()"><img src="<s:property value='#session.ItemPageDTO.anotherPicUrl8'/>"></span>
+				<span onclick="showimg0()"><img src="<s:property value='#session.ItemPageDTO.picUrl0'/>"></span>
+				<span onclick="showimg1()"><img src="<s:property value='#session.ItemPageDTO.picUrl1'/>"></span>
+				<span onclick="showimg2()"><img src="<s:property value='#session.ItemPageDTO.picUrl2'/>"></span>
+				<span onclick="showimg3()"><img src="<s:property value='#session.ItemPageDTO.picUrl3'/>"></span>
+				<span onclick="showimg4()"><img src="<s:property value='#session.ItemPageDTO.picUrl4'/>"></span>
+				<span onclick="showimg5()"><img src="<s:property value='#session.ItemPageDTO.picUrl5'/>"></span>
+				<span onclick="showimg6()"><img src="<s:property value='#session.ItemPageDTO.picUrl6'/>"></span>
+				<span onclick="showimg7()"><img src="<s:property value='#session.ItemPageDTO.picUrl7'/>"></span>
+				<span onclick="showimg8()"><img src="<s:property value='#session.ItemPageDTO.picUrl8'/>"></span>
 
 			</div>
 

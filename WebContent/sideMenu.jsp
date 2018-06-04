@@ -6,14 +6,16 @@
 <div class="sidemenu clear-fix">
 
 	<h2><a href="sneakerSell.jsp#sneaker"><s:property value="item_id" /></a></h2>
+
 	<ul>
-		<li><a href="<s:url action='SearchAction' />"><s:hidden name="maker"/><s:property value="ナイキ"/></a></li>
-		<li><a href="<s:url action='SearchAction' />">アディダス</a></li>
+		<li><a href="<s:url action='SearchAction' />?maker=ナイキ ">ナイキ</a></li>
+
 		<li><a href="<s:url action='SearchAction' />">アシックス</a></li>
 		<li><a href="<s:url action='SearchAction' />">プーマ</a></li>
 		<li><a href="index.jsp">Air Jordan特設ページ</a></li>
 
 	</ul>
+
 </div>
 
 

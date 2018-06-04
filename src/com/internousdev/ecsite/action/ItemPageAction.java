@@ -17,7 +17,6 @@ public class ItemPageAction extends ActionSupport implements SessionAware{
 	public String execute() throws SQLException{
 		String result = SUCCESS;
 		ItemPageDAO itemPageDAO = new ItemPageDAO();
-
 		try{
 			itemPageDTO = itemPageDAO.getItemPageInfo(itemId);
 			session.put("ItemPageDTO",itemPageDTO);
