@@ -19,6 +19,7 @@ public class CartInsertAction extends ActionSupport implements SessionAware {
 	private int itemCount;
 	private int itemTotalPrice;
 	private int itemPrice;
+	private int sqlBranch;
 
 	public String execute() throws SQLException{
 		String result = SUCCESS;
@@ -27,14 +28,14 @@ public class CartInsertAction extends ActionSupport implements SessionAware {
 		LoginDTO loginDTO = new LoginDTO();
 		ItemPageDTO itemPageDTO = new ItemPageDTO();
 
-		boolean loginFlg = (boolean) session.get("loginFlg");
 		try{
-
-			if(loginFlg){
+			if(session.containsKey("LoginDTO")){
 				loginDTO = (LoginDTO)session.get("LoginDTO");
 				userId = loginDTO.getLoginId();
+				sqlBranch = 0;
 			}else{
 				userId = session.get("tempUserId").toString();
+				sqlBranch = 1;
 			}
 
 			//合計金額を出すために以下を使用
@@ -45,9 +46,9 @@ public class CartInsertAction extends ActionSupport implements SessionAware {
 			itemId = itemPageDTO.getItemId();
 
 			if(cartDAO.duplicates(userId,itemId)){
-			itemCount = itemCount + cartDAO.getItemCount(userId,itemId);
+			itemCount = itemCount + cartDAO.getItemCount(userId,itemId,sqlBranch);
 			session.put("ItemCount", itemCount);
-			cartDAO.cartDeleteInfo(userId,itemId);
+			cartDAO.cartDeleteInfo(userId,itemId,sqlBranch);
 			}else{
 			session.put("ItemCount", itemCount);
 			}
@@ -60,7 +61,7 @@ public class CartInsertAction extends ActionSupport implements SessionAware {
 
 			itemTotalPrice = (int)session.get("ItemTotalPrice");
 
-			cartDAO.getCartInsertInfo(userId,itemId,itemCount,itemTotalPrice);
+			cartDAO.getCartInsertInfo(userId,itemId,itemCount,itemTotalPrice,sqlBranch);
 
 
 		}

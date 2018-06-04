@@ -92,13 +92,13 @@ create table cart_info(
 	temp_user_id varchar(128),
 	item_id varchar(20) ,
 	item_count int ,
-	item_totl_price int ,
+	item_total_price int ,
 	insert_date datetime ,
 	update_date datetime
 );
 
 
-INSERT INTO login_user_transaction(login_id,login_pass,user_name)VALUES("admin","admin","admin");
+INSERT INTO login_user_transaction(login_id,login_pass,user_name)VALUES("guest","guest","guest");
 
 INSERT INTO item_info_transaction( item_id, item_name, item_title, pic_url0, pic_url1, pic_url2, pic_url3, pic_url4, pic_url5, pic_url6, pic_url7, pic_url8, item_price, item_text, item_stock, post_time, maker, color1, color2)VALUES("jordan1","エアジョーダンI","エアジョーダンIタイトル","images/jordan1/larges/jordan1-1.jpeg","images/jordan1/larges/jordan1-2.jpeg","images/jordan1/larges/jordan1-3.jpeg"," "," "," "," "," "," ","5000","jordan1の詳細","5","2018.04.26 12:30","エアジョーダン","ホワイト","レッド");
 

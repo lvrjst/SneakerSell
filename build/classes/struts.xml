@@ -8,7 +8,8 @@
 
  <package name="com.internousdev.ecsite.action" extends="struts-default">
 
- <action name="IndexAction" class="com.internousdev.ecsite.action.IndexAction" method="execute">
+ <action name="GoHomeAction" class="com.internousdev.ecsite.action.GoHomeAction" method="execute">
+ 	<result name="success">index.jsp</result>
  </action>
 
  <action name="SneakerSellAction" class="com.internousdev.ecsite.action.SneakerSellAction" method="execute">
@@ -23,11 +24,6 @@
 
  <action name="ScrapingAction" class="com.internousdev.ecsite.action.ScrapingAction" method="execute">
 	<result name="success" type="redirectAction">SneakerSellAction</result>
- </action>
-
-
- <action name="GoHomeAction" class="com.internousdev.ecsite.action.GoHomeAction" method="execute">
-	<result name="success">home.jsp</result>
  </action>
 
  <action name="HomeAction" class="com.internousdev.ecsite.action.HomeAction" method="execute">
@@ -63,32 +59,11 @@
  </action>
 
 <action name="CartInsertAction" class="com.internousdev.ecsite.action.CartInsertAction" method="execute">
-	<result name="success" type="chain">cart.jsp</result>
+	<result name="success" type="redirectAction">CartAction</result>
  </action>
 
  <action name="CartDeleteAction" class="com.internousdev.ecsite.action.CartDeleteAction" method="execute">
 	<result name="success" type="chain">CartAction</result>
- </action>
-
- <action name="BuyItemAction" class="com.internousdev.ecsite.action.BuyItemAction" method="execute">
-	<result name="success">buyItemConfirm.jsp</result>
-	<result name="error">buyItem.jsp</result>
- </action>
-
-
-<action name="BuyItemConfirmAction" class="com.internousdev.ecsite.action.BuyItemConfirmAction" method="execute">
-	<result name="success">buyItemComplete.jsp</result>
-	<result name="back">buyItem.jsp</result>
- </action>
-
-<action name="BuyItemCompleteAction" class="com.internousdev.ecsite.action.BuyItemCompleteAction" method="execute">
-	<result name="success">login.jsp</result>
-</action>
-
-<action name="MyPageAction" class="com.internousdev.ecsite.action.MyPageAction" method="execute">
-	<result name="success">myPage.jsp</result>
-	<result name="error">error.jsp</result>
-
  </action>
 
 <action name="LogoutAction" class="com.internousdev.ecsite.action.LogoutAction" method="execute">

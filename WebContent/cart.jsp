@@ -5,26 +5,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><s:property value="#session.LoginDTO.userId" />のカート</title>
+<title>
+	<s:if test="#session.LoginDTO.isEmpty">ゲスト</s:if>
+	<s:else><s:property value="#session.LoginDTO.userId" /></s:else>
+のカート
+</title>
 </head>
 <body>
 	<jsp:include page="topMenu.jsp" />
 
 	<s:if test='cartDTOList.isEmpty()'>
-		<p>かーとに入れた商品はありません。</p>
+		<p>カートに入れた商品はありません。</p>
 	</s:if>
 	<s:else>
 		<s:iterator value="cartDTOList">
-			<%-- <s:property value="productName" />
-			<s:property value="productNameKana" />
-			<s:property value="releaseDate" />
-			<s:property value="releaseCompany" />
-
-			 --%>
 			<s:property value="itemName" />
 			<s:property value="itemPrice" />
 			<s:property value="itemCount" />
-			<img src="<s:property value='topPicUrl' />" />
+			<img src="<s:property value='PicUrl0' />" />
 			<s:property value="itemTotalPrice" />
 			<s:form action="CartDeleteAction">
 				<input type="hidden" name="itemId" value="<s:property value='itemId'/>" />

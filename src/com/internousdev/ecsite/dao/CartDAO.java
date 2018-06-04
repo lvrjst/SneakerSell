@@ -13,15 +13,20 @@ import com.internousdev.ecsite.util.DateUtil;
 
 public class CartDAO {
 	public Map<String,Object>session;
+	private String sql;
+	private int sqlBranch;
 
-	public ArrayList<CartDTO> getCartInfo(String userId)throws SQLException{
+	public ArrayList<CartDTO> getCartInfo(String userId,int sqlBranch)throws SQLException{
 		DBConnector dbConnector = new DBConnector();
 		Connection con = dbConnector.getConnection();
 		ArrayList<CartDTO> cartDTOList = new ArrayList<CartDTO>();
 
-		String sql = "select * from cart_info left outer join item_info_transaction ON cart_info.item_id= item_info_transaction.item_id where user_id = ?";
+		if(sqlBranch == 0){
+			sql = "select * from cart_info left outer join item_info_transaction ON cart_info.item_id = item_info_transaction.item_id where user_id = ?";
+		}else{
+			sql = "select * from cart_info left outer join item_info_transaction ON cart_info.item_id = item_info_transaction.item_id where temp_user_id = ?";
+		}
 
-				//"select * from cart_info left outer join product_info ON cart_info.product_id= product_info.product_id where user_id = ?";
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
@@ -31,16 +36,10 @@ public class CartDAO {
 				CartDTO cartDTO = new CartDTO();
 				cartDTO.setItemId(rs.getString("item_id"));
 				cartDTO.setItemName(rs.getString("item_name"));
-				//cartDTO.setProductName(rs.getString("productName"));
-				//cartDTO.setProductNameKana(rs.getString("productNameKana"));
 				cartDTO.setItemPrice(rs.getInt("item_price"));
 				cartDTO.setItemCount(rs.getInt("item_count"));
 				cartDTO.setItemTotalPrice(rs.getInt("item_total_price"));
-				//下のやつの代わりcartDTO.setImageFilePath(rs.getString("imageFilePath"));
 				cartDTO.setTopPicUrl(rs.getString("pic_url0"));
-				//cartDTO.setReleaseConpany(rs.getString("releaseConpany"));
-				//cartDTO.setReleaseDate(rs.getString("releaseDate"));
-				//cartDTO.setItemStock(rs.getInt("item_stock"));
 				cartDTOList.add(cartDTO);
 			}
 		}catch(SQLException e){
@@ -51,19 +50,22 @@ public class CartDAO {
 		return cartDTOList;
 	}
 
-		public void getCartInsertInfo(String userId,String itemId,int itemCount,int itemTotalPrice) throws SQLException{
+		public void getCartInsertInfo(String userId,String itemId,int itemCount,int itemTotalPrice,int sqlBranch) throws SQLException{
 			DBConnector dbConnector = new DBConnector();
 			Connection con = dbConnector.getConnection();
 			DateUtil dateUtil = new DateUtil();
-			String sql = "INSERT INTO cart_info(user_id,temp_user_id,item_id,item_count,item_total_price,insert_date) VALUES(?,?,?,?,?,?)";
+			if(sqlBranch == 0){
+				sql = "INSERT INTO cart_info(user_id,item_id,item_count,item_total_price,insert_date) VALUES(?,?,?,?,?)";
+			}else{
+				sql = "INSERT INTO cart_info(temp_user_id ,item_id,item_count,item_total_price,insert_date) VALUES(?,?,?,?,?)";
+			}
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
-			ps.setString(2, userId);
-			ps.setString(3, itemId);
-			ps.setInt(4, itemCount);
-			ps.setInt(5, itemTotalPrice);
-			ps.setString(6, dateUtil.getDate());
+			ps.setString(2, itemId);
+			ps.setInt(3, itemCount);
+			ps.setInt(4, itemTotalPrice);
+			ps.setString(5, dateUtil.getDate());
 
 			ps.executeUpdate();
 
@@ -75,13 +77,16 @@ public class CartDAO {
 	}
 
 
-	public int getItemCount(String userId,String itemId)throws SQLException{
+	public int getItemCount(String userId,String itemId,int sqlBranch)throws SQLException{
 		DBConnector dbConnector = new DBConnector();
 		Connection con = dbConnector.getConnection();
 		int itemCount = 0;
 
-		String sql = "select item_count from cart_info where user_id = ? and item_id = ?";
-
+		if(sqlBranch == 0){
+			sql = "select item_count from cart_info where user_id = ? and item_id = ?";
+		}else{
+			sql = "select item_count from cart_info where temp_user_id = ? and item_id = ?";
+		}
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
@@ -101,11 +106,15 @@ public class CartDAO {
 	}
 
 
-	public void cartDeleteInfo(String userId, String itemId) throws SQLException {
+	public void cartDeleteInfo(String userId, String itemId, int sqlBranch) throws SQLException {
 		DBConnector dbConnector = new DBConnector();
 		Connection con = dbConnector.getConnection();
 
-		String sql = "DELETE from cart_info where user_id = ? and item_id = ?";
+		if(sqlBranch == 0){
+			sql = "DELETE from cart_info where user_id = ? and item_id = ?";
+		}else{
+			sql = "DELETE from cart_info where temp_user_id = ? and item_id = ?";
+		}
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
@@ -140,7 +149,11 @@ public class CartDAO {
 		String duplicate = null;
 		DBConnector dbConnector = new DBConnector();
 		Connection con = dbConnector.getConnection();
-		String sql = "select user_id from cart_info where user_id = ? AND item_id = ? ";
+		if(sqlBranch == 0){
+			sql = "select user_id from cart_info where user_id = ? AND item_id = ? ";
+		}else{
+			sql = "select temp_user_id from cart_info where temp_user_id = ? AND item_id = ? ";
+		}
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
@@ -148,7 +161,11 @@ public class CartDAO {
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()){
-				duplicate = rs.getString("user_id");
+				if(sqlBranch == 0){
+					duplicate = rs.getString("user_id");
+				}else{
+					duplicate = rs.getString("temp_user_id");
+				}
 			}
 			if(duplicate != null){
 				result = true;

@@ -16,6 +16,8 @@ public class CartAction extends ActionSupport implements SessionAware {
 	private String ERROR;
 	private  String userId;
 	private int totalPrice;
+	private int sqlBranch;
+	private int totalItemCount;
 
 
 	public String execute(){
@@ -23,20 +25,20 @@ public class CartAction extends ActionSupport implements SessionAware {
 		CartDAO cartDAO = new CartDAO();
 		LoginDTO loginDTO = new LoginDTO();
 
-		boolean loginFlg = (boolean) session.get("loginFlg");
-
 		try{
-			if(loginFlg){
+			if(session.containsKey("LoginDTO")){
 				loginDTO = (LoginDTO)session.get("LoginDTO");
 				userId = loginDTO.getLoginId();
+				sqlBranch = 0;
 			}
 			else{
-				userId = session.get("TempUserId").toString();
+				userId = session.get("tempUserId").toString();
+				sqlBranch = 1;
 			}
-				cartDTOList = cartDAO.getCartInfo(userId);
-
+				cartDTOList = cartDAO.getCartInfo(userId,sqlBranch);
 				totalPrice = totalPrice(cartDTOList);
-
+				totalItemCount = totalItemCount(cartDTOList);
+				session.put("TotalItemCount", totalItemCount);
 
 				result = SUCCESS;
 		}
@@ -53,6 +55,13 @@ public class CartAction extends ActionSupport implements SessionAware {
 		}
 		return totalPrice;
 	}
+	public int totalItemCount(ArrayList<CartDTO> cartList){
+		for(CartDTO cartDTO : cartList){
+			totalItemCount += cartDTO.getItemCount();
+		}
+		return totalItemCount;
+	}
+
 	public String getUserId(){
 	return userId;
 	}

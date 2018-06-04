@@ -9,9 +9,9 @@
 
 	<ul>
 		<li><a href="<s:url action='SearchAction' />?maker=ナイキ ">ナイキ</a></li>
-
-		<li><a href="<s:url action='SearchAction' />">アシックス</a></li>
-		<li><a href="<s:url action='SearchAction' />">プーマ</a></li>
+		<li><a href="<s:url action='SearchAction' />?maker=アディダス ">アディダス</a></li>
+		<li><a href="<s:url action='SearchAction' />?maker=アシックス">アシックス</a></li>
+		<li><a href="<s:url action='SearchAction' />?maker=プーマ">プーマ</a></li>
 		<li><a href="index.jsp">Air Jordan特設ページ</a></li>
 
 	</ul>
