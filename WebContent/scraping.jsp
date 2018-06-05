@@ -26,6 +26,7 @@
 			<table>
 			<s:form action="ScrapingItemAction">
 			<tr>
+				<td><img src="scrapingItem.png"></td>
 				<td>
 					<label>一つの商品を追加する場合のURL</label>
 				</td>
@@ -38,6 +39,7 @@
 
 			<s:form action="ScrapingPageAction">
 			<tr>
+				<td><img src="scrapingItem.png"></td>
 				<td>
 					<label>最初のページを除く、Page1つ(１６商品)を追加する場合のURL</label>
 				</td>
