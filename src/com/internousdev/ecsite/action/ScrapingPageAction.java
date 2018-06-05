@@ -11,8 +11,9 @@ import org.jsoup.select.Elements;
 import com.internousdev.ecsite.dao.ScrapingDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ScrapingAction extends ActionSupport{
+public class ScrapingPageAction extends ActionSupport{
 		private ScrapingDAO scrapingDAO = new ScrapingDAO();
+		private String scrapingPageUrl;
 
 		private String itemId;
 		private String itemName ;
@@ -29,12 +30,11 @@ public class ScrapingAction extends ActionSupport{
 
 	public String execute() throws IOException, SQLException, InterruptedException {
 		String result =SUCCESS;
-		String url = "http://sneakerwars.jp/items/page/3";
 		/*String url = "http://sneakerwars.jp/items/page/";
 		 for(int i=2;i<10;i++){
 			url += i+url;*///開始時間
 
-			Document doc = Jsoup.connect(url).get();
+			Document doc = Jsoup.connect(scrapingPageUrl).get();
 			//Element element = doc.select("#pageid1 > div > article > div > a").get(0);//2ページ目にあるurl(1個目)
 
 			Elements elements = doc.select("#pageid1 > div > article > div > a");//１ページにある各url(16個)
@@ -131,23 +131,20 @@ public class ScrapingAction extends ActionSupport{
 
 
 				Elements elemPics = doc2.select("#view_col2 > div > ul > li > a");//商品の各画像
-					/*String topPicUrl = elemPics.get(0).attr("href");
-					String anotherPicUrl1=elemPics.get(1).attr("href");
-					String anotherPicUrl2=elemPics.get(2).attr("href");
-					String anotherPicUrl3=elemPics.get(3).attr("href");
-					String anotherPicUrl4=elemPics.get(4).attr("href");
-					String anotherPicUrl5=elemPics.get(5).attr("href");
-					String anotherPicUrl6=elemPics.get(6).attr("href");
-					String anotherPicUrl7=elemPics.get(7).attr("href");
-					String anotherPicUrl8=elemPics.get(8).attr("href");*/
-
-
 
 				scrapingDAO.getScrapingInfo(itemId, itemName, itemTitle, elemPics,itemPrice, itemText, postTime, maker, color1, color2);
 
 			}
 		//}
 		return result;
+	}
+
+	public String getScrapingPageUrl(String scrapingPageUrl){
+		return scrapingPageUrl;
+	}
+
+	public void setScrapingPageUrl(String scrapingPageUrl) {
+		this.scrapingPageUrl = scrapingPageUrl;
 	}
 
 	public String getItemName() {
@@ -157,20 +154,4 @@ public class ScrapingAction extends ActionSupport{
 		this.itemName = itemName;
 	}
 
-//	String url = "http://sneakerwars.jp/items/page/2";
-//	Document doc = Jsoup.connect(url).get();
-//	Elements elements = doc.select("#pageid1 > div > article > div > a");
-//	for(Element element:elements){
-//		System.out.println(element.attr("href"));
-//	}
-//
-
-//	public static void main(String[] args) throws IOException {
-//		String url = "https://twitter.com/search?lang=ja&src=typd";
-//		Document doc = Jsoup.connect(url).timeout(8000).data("q", "クックパッド").get();
-//		Elements elements = doc.select("p.TweetTextSize.js-tweet-text.tweet-text");
-//			for(Element element:elements){
-//				System.out.println(element.text());
-//			}
-//    }
 }

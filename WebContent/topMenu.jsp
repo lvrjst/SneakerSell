@@ -21,9 +21,9 @@
 			<s:if test="#session.loginFlg"><a href="<s:url action='LogoutAction' />">ログアウト</a></s:if>
 			<s:else><a href="<s:url action='HomeAction' />">ログイン</a></s:else>
 			</li>
-			<li><a href="<s:url action='ScrapingAction' />">新商品</a></li>
+			<li><a href="scraping.jsp">商品追加</a></li>
 			<li><a href="<s:url action='CartAction' />">ショッピングカート</a></li>
-			<li><a href="<s:url action='SneakerSellAction' />">SneakerSell</a></li>
+			<li><a href="<s:url action='SneakerSellAction' />">商品一覧</a></li>
 		</ul>
 	</div>
 </div>
