@@ -63,7 +63,7 @@
  </action>
 
  <action name="CartDeleteAction" class="com.internousdev.ecsite.action.CartDeleteAction" method="execute">
-	<result name="success" type="chain">CartAction</result>
+	<result name="success" type="redirectAction">CartAction</result>
  </action>
 
 <action name="LogoutAction" class="com.internousdev.ecsite.action.LogoutAction" method="execute">

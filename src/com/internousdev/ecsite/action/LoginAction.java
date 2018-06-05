@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.ecsite.dao.BuyItemDAO;
+import com.internousdev.ecsite.dao.CartDAO;
 import com.internousdev.ecsite.dao.LoginDAO;
 import com.internousdev.ecsite.dto.BuyItemDTO;
 import com.internousdev.ecsite.dto.LoginDTO;
@@ -14,21 +15,33 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction extends ActionSupport implements SessionAware{
 
-	private String loginId;
+	private String userId;
 	private String loginPass;
 	private String userName;
 	public Map<String, Object> session;
 	private LoginDAO loginDAO = new LoginDAO();
-	private LoginDTO loginDTO = new LoginDTO();
+	private LoginDTO LoginDTO = new LoginDTO();
 	private BuyItemDAO buyItemDAO = new BuyItemDAO();
 
 	public String execute() throws SQLException{
 		String result = ERROR;
-		loginDTO = loginDAO.getLoginUserInfo(loginId, loginPass);
-		session.put("LoginDTO", loginDTO);
+		LoginDTO = loginDAO.getLoginUserInfo(userId, loginPass);
+		session.put("LoginDTO", LoginDTO);
 
 		try{
-			if(((LoginDTO)session.get("LoginDTO")).getLoginFlg()){
+			result = SUCCESS;
+
+			if(!session.containsKey("LoginDTO")){
+				//ログイン成功時に以下を使用
+				CartDAO cartDAO = new CartDAO();
+				String tempUserId = session.get("tempUserId").toString();
+				cartDAO.changeTempUserId(userId,tempUserId);
+				//dtoをセッションに格納
+				session.put("LoginDTO",LoginDTO);
+			}
+
+
+			if(session.containsKey("LoginDTO")){
 				result = SUCCESS;
 				BuyItemDTO buyItemDTO = buyItemDAO.getBuyItemInfo();
 
@@ -46,11 +59,11 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		return result;
 	}
 
-	public String getLoginId(){
-		return loginId;
+	public String getuserId(){
+		return userId;
 	}
-	public void setLoginId(String loginId){
-		this.loginId = loginId;
+	public void setUserId(String userId){
+		this.userId = userId;
 	}
 	public String getLoginPass(){
 		return loginPass;

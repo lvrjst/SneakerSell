@@ -22,7 +22,6 @@
 
 	<div id="main">
 		<div>
-			<h3>商品を購入する際にはログインをお願いします。</h3>
 			<table>
 			<s:form action="LoginAction">
 			<tr>
@@ -30,7 +29,7 @@
 					<label>ログインID:</label>
 				</td>
 				<td>
-					<s:textfield name="loginId" />
+					<s:textfield name="userId" />
 				</td>
 			</tr>
 			<tr>
@@ -48,8 +47,6 @@
 			<div>
 				<p>新規ユーザー登録は
 					<a href='<s:url action="UserCreateAction"/>'>こちら</a></p>
-				<p>Homeへ戻る場合は
-					<a href='<s:url action="SneakerSellAction"/>'>こちら</a></p>
 			</div>
 		</div>
 	</div>

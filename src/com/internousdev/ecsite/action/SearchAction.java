@@ -21,9 +21,7 @@ public class SearchAction extends ActionSupport implements SessionAware {
 
 
 	public String execute() throws SQLException{
-		System.out.println(maker);
 		sneakerSellDTOList = searchDAO.searchMaker(maker);
-		System.out.println(sneakerSellDTOList);
 
 		return result;
 	}
