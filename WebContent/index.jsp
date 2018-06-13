@@ -49,19 +49,17 @@
 
 		<div id="contact" >
 			<h1>Contact form</h1>
-				<form>
+				<s:form action="PostAction">
 					Email Address:<br>
-					<input type="email" placeholder="Your Email Address" size="40"><br><br>
-					Confirm Email Address:<br>
-					<input type="email" placeholder="Confirm Your Email Address" size="40"><br><br>
+					<s:textfield name="email" placeholder="Your Email Address" size="40" /><br><br>
 					Name:<br>
-					<input type="text" placeholder="Your Name" size="40"><br><br>
+					<s:textfield name="name" placeholder="Your Name" size="40" /><br><br>
 					Favorite Basketball Player:<br>
-					<input type="text" placeholder="Player Name" size="40"><br><br>
+					<s:textfield name="player" placeholder="Player Name" size="40" /><br><br>
 					Message:<br>
-					<textarea rows="10" cols="38" placeholder="Your Message"></textarea><br><br>
-					<input type="submit" value="Send Message">
-				</form>
+					<s:textfield name="message" rows="10" cols="38" placeholder="Your Message" /><br><br>
+					<s:submit value="Send Message" />
+				</s:form>
 		</div>
 
 	<footer>

@@ -4,12 +4,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="floating_menu.css">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>
-	<s:if test="#session.LoginDTO.isEmpty">ゲスト</s:if>
-	<s:else><s:property value="#session.LoginDTO.userId" /></s:else>
-のカート
+	<link rel="stylesheet" type="text/css" href="css/floating_menu.css">
+	<link rel="stylesheet" type="text/css" href="css/cart.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>
+		<s:if test="#session.LoginDTO.isEmpty">ゲスト</s:if>
+		<s:else><s:property value="#session.LoginDTO.userId" /></s:else>
+	のカート
 </title>
 </head>
 <body>
